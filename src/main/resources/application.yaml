@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecom_product_db
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      default-schema: public
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
